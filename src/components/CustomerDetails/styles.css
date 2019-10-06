@@ -1,0 +1,24 @@
+.page-header a {
+    text-decoration: none;
+    font-size: 2em;
+    float: left;
+    color: white;
+    margin: 0px;
+    padding-left: 10px;
+}
+
+
+
+.customer-details {
+    margin: 10px 0px 10px 0px;
+    padding: 16px 24px;
+    background-color: #0058a3;
+    color: white;
+    border-radius: 2px;
+    -webkit-transition: background-color .5s ease-out;
+    -o-transition: background-color .5s ease-out;
+    transition: background-color .5s ease-out;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+

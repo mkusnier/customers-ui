@@ -1,0 +1,24 @@
+@media(min-width: 600px) {
+  .App {
+    max-width: 50%;
+  }
+}
+
+.App {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-header {
+  font-size:2em;
+  color: white;
+  background-color: black;
+  
+  
+}
+
+.page-header p {
+  padding: 16px 24px;
+  margin: 0px;
+}
