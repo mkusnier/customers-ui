@@ -14,8 +14,13 @@
   font-size:2em;
   color: white;
   background-color: black;
-  
-  
+}
+
+.page-header::after { 
+  content: " ";
+  display: block; 
+  height: 0; 
+  clear: both;
 }
 
 .page-header p {

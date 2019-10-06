@@ -1,40 +1,48 @@
 import React, { Component } from 'react';
 import {getCustomer} from '../../actions'
 import { Link } from "react-router-dom";
+import Loader from '../Loader'
+import ErrorMessage from '../ErrorMessage'
+import DataRow from '../DataRow'
 import './styles.css'
 
 class CustomerDetails extends Component {
   state = {
-    customer: {}
+    customer: {},
+    isLoaded: false
   };
 
   componentDidMount() {
-    getCustomer(this.props.match.params.id).then(customer => 
-      this.setState({ customer: customer })
+    getCustomer(this.props.match.params.id).then(
+      result => this.setState({ customer: result , isLoaded: true}),
+      error => this.setState({isLoaded: true, error})
     )
   }
 
   render() {
+    const { error, isLoaded, customer } = this.state;
     return (
       <div>
         <div className="page-header">
-          <Link to="/">&lt;</Link><p>{this.state.customer.firstname} {this.state.customer.lastname}</p>
+          <Link to="/"><i className="fas fa-chevron-left"></i></Link>{isLoaded ? <p>{customer.firstname} {customer.lastname}</p> : null}
         </div>
-      
-        <div className="customer-details">
-            {/* <p>ID: {this.state.customer.id}</p> */}
-            <p>First name: {this.state.customer.firstname}</p>
-            <p>Last name: {this.state.customer.lastname}</p>
-            {this.state.customer.address 
-            ? (<div><p>Address: </p>
-              <p>Street: {this.state.customer.address.line1}</p>
-              <p>City: {this.state.customer.address.city}</p>
-              <p>Steate: {this.state.customer.address.state}</p>
-              <p>Zip: {this.state.customer.address.zip}</p>
-              </div>)
-          : null}
-            
-        </div>
+        {isLoaded 
+        ? null
+        : (<Loader />)}
+        
+        {error 
+        ? (<ErrorMessage msg={error.message} />)
+        : (<div>
+          {isLoaded 
+            ? (<div className="customer-details">
+              <DataRow label="Age" value={customer.age}/>
+              <DataRow label="Email" value={customer.email}/>
+              <DataRow label="Address">
+                {customer.address.line1} <br/> {customer.address.city}, {customer.address.state}, {customer.address.zip}
+              </DataRow>
+            </div>)
+           : null}  
+        </div>)}
       </div>
     );
   }
