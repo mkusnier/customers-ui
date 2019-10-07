@@ -1,5 +1,5 @@
 @media(min-width: 600px) {
-  .App {
+  .half-page {
     max-width: 50%;
   }
 }
@@ -11,9 +11,20 @@
 }
 
 .page-header {
-  font-size:2em;
+  font-size: 2em;
+  height: 2em;
   color: white;
-  background-color: black;
+  background-color: #0058a3;
+  box-shadow: 0 2px 4px rgba(0,0,0,.5);
+}
+
+.page-header a {
+  text-decoration: none;
+  font-size: 2em;
+  float: left;
+  color: white;
+  margin: 0px;
+  padding-left: 10px;
 }
 
 .page-header::after { 

@@ -34,12 +34,15 @@ class CustomerDetails extends Component {
         ? (<ErrorMessage msg={error.message} />)
         : (<div>
           {isLoaded 
-            ? (<div className="customer-details">
+            ? (<div className="customer-details half-page">
               <DataRow label="Age" value={customer.age}/>
               <DataRow label="Email" value={customer.email}/>
+              <DataRow label="Company" value={customer.company}/>
+              <DataRow label="Account balance" value={customer.balance}/>
               <DataRow label="Address">
                 {customer.address.line1} <br/> {customer.address.city}, {customer.address.state}, {customer.address.zip}
               </DataRow>
+              <DataRow label="About" value={customer.about}/>
             </div>)
            : null}  
         </div>)}

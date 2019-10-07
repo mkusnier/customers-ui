@@ -31,7 +31,7 @@ class CustomerList extends Component {
         
         {error 
         ? (<ErrorMessage msg="Error occured while fetching customers" />)
-        : (<div className="customer-list">
+        : (<div className="customer-list half-page">
         
           {
             customers.map((value, index) => {

@@ -1,8 +1,14 @@
 .data-label {
     float: left;
-    width: 5em;
+    width: 6em;
 }
 
 .data-value {
-    margin-left: 5em;
+    margin-left: 6em;
 }
+.data-value::after { 
+    content: " ";
+    display: block; 
+    height: 0; 
+    clear: both;
+  }
